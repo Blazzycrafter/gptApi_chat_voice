@@ -2,6 +2,10 @@ from ffmpegaudiorecord import start_recording
 import os
 import subprocess
 import settings
+from openai import OpenAI
+
+openai_client = OpenAI(api_key=settings.api_key)
+
 
 
 def record():
