@@ -3,6 +3,7 @@ import os
 import subprocess
 import settings
 
+
 def record():
     try:
         os.remove("voice.ogg")
@@ -26,3 +27,5 @@ def record():
 
 if __name__ == '__main__':
     record()
+
+# THIS COMMENT OLNY EXIST FOR REFORMATTING
