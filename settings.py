@@ -10,3 +10,7 @@ except FileNotFoundError:
     print("please go to https://platform.openai.com/api-keys")
     print("to create an new apikey")
     exit()
+
+record_audiodevice=0
+record_silent_seconds_stop=3
+record_silence_threshold=-50
