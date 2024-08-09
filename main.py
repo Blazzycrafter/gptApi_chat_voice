@@ -1,6 +1,7 @@
 from ffmpegaudiorecord import start_recording
 import os
 import subprocess
+import settings
 
 def record():
     try:
@@ -8,11 +9,15 @@ def record():
     except:
         pass
     audio_data = start_recording(
-        ffmpegexe="ffmpeg/bin/ffmpeg.exe", audiodevice=1, silent_seconds_stop=10, silence_threshold=-50)
+        ffmpegexe=settings.record_ffmpegexe,
+        audiodevice=settings.record_audiodevice,
+        silent_seconds_stop=settings.record_silent_seconds_stop,
+        silence_threshold=settings.record_silence_threshold
+    )
     with open("voice.raw", "wb") as f:
         f.write(audio_data.raw_data)
 
-    subprocess.run("ffmpeg/bin/ffmpeg.exe -f s16le -ar 44100 -ac 2 -i voice.raw -c:a libvorbis voice.ogg")
+    subprocess.run(f"{settings.record_ffmpegexe} -f s16le -ar 44100 -ac 2 -i voice.raw -c:a libvorbis voice.ogg")
     try:
         os.remove("voice.raw")
     except:
