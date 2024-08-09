@@ -15,3 +15,4 @@ record_silent_seconds_stop=3
 record_silence_threshold=-50
 record_ffmpegexe="ffmpeg/bin/ffmpeg.exe"
 
+transcribe_model = "whisper-1"
