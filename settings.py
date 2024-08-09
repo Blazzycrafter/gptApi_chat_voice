@@ -14,3 +14,4 @@ except FileNotFoundError:
 record_audiodevice=0
 record_silent_seconds_stop=3
 record_silence_threshold=-50
+record_ffmpegexe="ffmpeg/bin/ffmpeg.exe"
