@@ -1,7 +1,7 @@
 
 # get of api.key file and assuming its correct...
 try:
-    with open("api.key" "r") as f:
+    with open("api.key", "r") as f:
         api_key = f.readline()
 except FileNotFoundError:
     open("api.key", "w").write("JustReplaceMe")
