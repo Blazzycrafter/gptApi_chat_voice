@@ -5,7 +5,7 @@ import settings
 from openai import OpenAI
 
 openai_client = OpenAI(api_key=settings.api_key)
-
+history = []
 
 
 def record():
@@ -40,7 +40,7 @@ def transcribe():
     print("transcribing...", end="")
     audio_file = open("voice.ogg", "rb")
     transcription = openai_client.audio.transcriptions.create(
-        model="whisper-1",
+        model=settings.transcribe_model,
         file=audio_file
     )
     print("DONE")
