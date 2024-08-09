@@ -1,4 +1,3 @@
-import os
 
 # get of api.key file and assuming its correct...
 try:
@@ -16,4 +15,3 @@ record_silent_seconds_stop=3
 record_silence_threshold=-50
 record_ffmpegexe="ffmpeg/bin/ffmpeg.exe"
 
-# THIS COMMENT OLNY EXIST FOR REFORMATTING

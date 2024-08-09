@@ -27,5 +27,3 @@ def record():
 
 if __name__ == '__main__':
     record()
-
-# THIS COMMENT OLNY EXIST FOR REFORMATTING
