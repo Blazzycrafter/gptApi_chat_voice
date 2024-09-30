@@ -40,7 +40,7 @@ def record():
         '-i', 'voice.raw',
         '-c:a', 'libvorbis',
         'voice.ogg'
-    ],  stdout=subprocess.DEVNULL,
+    ], stdout=subprocess.DEVNULL,
         stderr=subprocess.PIPE)
 
     print("\rPROGRESS: Bereinige temporäre Dateien...", end="")
@@ -50,7 +50,7 @@ def record():
         pass
     except Exception as e:
         print(f"Fehler beim Löschen der Datei 'voice.raw': {e}")
-    print("\r                                        ",end="")
+    print("\r                                        ", end="")
 
 
 def transcribe():
@@ -96,14 +96,14 @@ def chat(history):
 
 
 def tts(text):
-    response= openai_client.audio.speech.create(
+    response = openai_client.audio.speech.create(
         input=text,
         model=settings.tts_model,
         voice=settings.tts_voice,
         response_format="mp3"
     )
     c = response.content
-    with open("response.mp3","wb") as f:
+    with open("response.mp3", "wb") as f:
         f.write(c)
 
     subprocess.run([
@@ -111,7 +111,8 @@ def tts(text):
         "response.mp3"
     ])
 
-DEV=False
+
+DEV = False
 if __name__ == '__main__':
     if not DEV:
         while True:
