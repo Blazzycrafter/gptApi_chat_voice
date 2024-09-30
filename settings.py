@@ -16,3 +16,7 @@ record_silence_threshold=-50
 record_ffmpegexe="ffmpeg/bin/ffmpeg.exe"
 
 transcribe_model = "whisper-1"
+chat_model = "gpt-4o"
+
+tts_model = "tts-1"
+tts_voice = "fable"
