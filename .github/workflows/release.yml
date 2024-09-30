@@ -1,0 +1,39 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Matches version tags like v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      - name: Set up Node.js # Or your specific environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run build script
+        run: npm run build # Adjust if necessary for your build process
+
+      - name: Create archive
+        run: zip -r release-v${GITHUB_REF##*/}.zip ./dist
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./release-v${GITHUB_REF##*/}.zip
+          asset_name: release-v${GITHUB_REF##*/}.zip
+          asset_content_type: application/zip
