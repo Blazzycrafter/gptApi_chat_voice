@@ -15,7 +15,7 @@ jobs:
           lfs: true
 
       - name: Create archive
-        run: zip -r release-v${GITHUB_REF##*/}.zip ./dist
+        run: zip -r release-v${GITHUB_REF##*/}.zip ./
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
